@@ -1,0 +1,23 @@
+{
+  "name": "cfnx-webdev-setup-pro",
+  "version": "1.0.0",
+  "scripts": {
+    "dev:backend": "cd strapi_backend && npm run develop",
+    "dev:frontend": "cd nuxt_frontend && npm run dev",
+    "dev": "concurrently -n BACKEND,FRONTEND -c cyan,magenta \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "i:backend": "cd strapi_backend && npm i",
+    "i:frontend": "cd nuxt_frontend && npm i",
+    "create_backend": "cd strapi_backend && npx create-strapi-app@4.19.1 ./ --no-run --quickstart",
+    "setup": "node scripts/confirm_setup.js",
+    "i": "concurrently -n MAIN_DIR,NUXT_FRONTEND_DIR,STR_BACKEND_DIR -c #1FD7E7,#39E9AC,#7B39E9 \"npm i\" \"npm run i:frontend\" \"npm run i:backend\"",
+    "build:backend": "cd strapi_backend && npm run build --production",
+    "build:frontend": "cd nuxt_frontend && npm run build",
+    "build": "concurrently -n STR_BACKEND_DIR,NUXT_FRONTEND_DIR -c #7B39E9,#39E9AC \"npm run build:backend\" \"npm run build:frontend\""
+  },
+  "devDependencies": {
+    "chalk": "^2.4.2",
+    "concurrently": "^8.2.2",
+    "cross-spawn": "^7.0.3",
+    "fs-extra": "^11.2.0"
+  }
+}
