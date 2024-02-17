@@ -6,7 +6,10 @@
             <p>Sparda-Bank West eG <b>GENODEF1S08</b></p>
         </header>
         <div class="main-field">
-
+            <div class="loginBgImageTop"></div>
+            <div class="loginBgImageMain"></div>
+            <div class="loginBgImageBottom"></div>
+            <div class="loginBgImageMirror"></div>
         </div>
     </div>
 
@@ -53,8 +56,35 @@
     }
 
     .main-field {
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        transform: translateX(-50%);
         width: 975px;
-        height: 490px;
+        height: 523px;
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+        .loginBgImageTop {
+            width: inherit;
+            height: 16px;
+            background-image: url('https://banking.sparda-west.de/portalstatic/spm/gfx/style/bg-buehne-login-top.png');
+        }
+        .loginBgImageMain {
+            width: inherit;
+            height: 425px;
+            background-image: url('https://banking.sparda-west.de/portalstatic/spm/gfx/style/bg-buehne-login-middle.png');
+        }
+        .loginBgImageBottom {
+            width: inherit;
+            height: 22px;
+            background-image: url('https://banking.sparda-west.de/portalstatic/spm/gfx/style/bg-buehne-login-bottom.png');
+        }
+        .loginBgImageMirror {
+            width: inherit;
+            height: 60px;
+            background-image: url('https://banking.sparda-west.de/portalstatic/spm/gfx/style/bg-spiegelung-login.png');
+        }
     }
 
 </style>
