@@ -27,7 +27,7 @@ export default defineNuxtConfig({
   app: {
     pageTransition: {},
     head: {
-      title: '',
+      title: 'Online-Banking',
     }
   },
 

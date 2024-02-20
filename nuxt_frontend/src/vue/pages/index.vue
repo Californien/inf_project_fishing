@@ -7,7 +7,15 @@
         </header>
         <div class="main-field">
             <div class="loginBgImageTop"></div>
-            <div class="loginBgImageMain"></div>
+            <div class="loginBgImageMain">
+                <div class="loginArea">
+                    <h2>Anmeldung zu Ihrem Online-Banking</h2>
+                    <div class="otherTabs">
+                        <div class="first" @click="toPDF">sdfbdsfbdsfb</div>
+                        <div class="second"></div>
+                    </div>
+                </div>
+            </div>
             <div class="loginBgImageBottom"></div>
             <div class="loginBgImageMirror"></div>
         </div>
@@ -17,7 +25,9 @@
 
 <script lang="ts" setup>
 
-
+    async function toPDF() {
+        await navigateTo('https://www.sparda-west.de/internetauftritt/downloads/pdf/online-banking/vereinbarung-ueber-das-online-banking.pdf', { external: true, open: { target: '_blank' } });
+    }
 
 </script>
 
@@ -31,10 +41,14 @@
     }
 
     * {
+        color: #2a3d5c;
         font-family: 'Arial';
+        margin: 0;
+        padding: 0;
     }
 
     header {
+        color: #2e3744;
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
@@ -74,6 +88,18 @@
             width: inherit;
             height: 425px;
             background-image: url('https://banking.sparda-west.de/portalstatic/spm/gfx/style/bg-buehne-login-middle.png');
+            .loginArea {
+                position: relative;
+                left: 15px;
+                width: 646px;
+                height: 263px;
+                padding-top: 14px;
+                padding-left: 18px;
+                background-image: url('https://banking.sparda-west.de/portalstatic/spm/gfx/style/box-login.png');
+                h2 {
+                    font-size: 13px;
+                }
+            }
         }
         .loginBgImageBottom {
             width: inherit;
