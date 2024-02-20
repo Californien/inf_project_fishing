@@ -99,6 +99,14 @@
                 h2 {
                     font-size: 13px;
                 }
+                .otherTabs {
+                    .first {
+
+                    }
+                    .second {
+                        
+                    }
+                }
             }
         }
         .loginBgImageBottom {
