@@ -1,19 +1,15 @@
 <template>
 
     <div>
-        <header>
-            <img src="/images/spardalogo.jpg" alt="Logo">
-            <p>Sparda-Bank West eG <b>GENODEF1S08</b></p>
-        </header>
+        <Header />
         <div class="main-field">
             <div class="loginBgImageTop"></div>
             <div class="loginBgImageMain">
                 <div class="loginArea">
                     <h2>Anmeldung zu Ihrem Online-Banking</h2>
-                    <div class="otherTabs">
-                        <div class="first" @click="toPDF">sdfbdsfbdsfb</div>
-                        <div class="second"></div>
-                    </div>
+                    <Tabs />
+                    <p>Bitte melden Sie sich mit der Eingabe Ihrer Kundennummer und der Online-PIN an. Andere Angaben sind nicht notwendig.</p>
+                    <LoginForm />
                 </div>
             </div>
             <div class="loginBgImageBottom"></div>
@@ -22,14 +18,6 @@
     </div>
 
 </template>
-
-<script lang="ts" setup>
-
-    async function toPDF() {
-        await navigateTo('https://www.sparda-west.de/internetauftritt/downloads/pdf/online-banking/vereinbarung-ueber-das-online-banking.pdf', { external: true, open: { target: '_blank' } });
-    }
-
-</script>
 
 <style lang="scss">
 
@@ -42,31 +30,9 @@
 
     * {
         color: #2a3d5c;
-        font-family: 'Arial';
+        font-family: 'Arial', 'Helvetica', 'sans-serif';
         margin: 0;
         padding: 0;
-    }
-
-    header {
-        color: #2e3744;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: flex-start;
-        gap: 2rem;
-        width: 975px;
-        position: absolute;
-        top: 16px;
-        left: 50%;
-        transform: translateX(-50%);
-        p {
-            position: relative;
-            bottom: 10px;
-            font-size: 14px;
-        }
-        img {
-            position: relative;
-        }
     }
 
     .main-field {
@@ -89,6 +55,7 @@
             height: 425px;
             background-image: url('https://banking.sparda-west.de/portalstatic/spm/gfx/style/bg-buehne-login-middle.png');
             .loginArea {
+                z-index: 1;
                 position: relative;
                 left: 15px;
                 width: 646px;
@@ -99,13 +66,10 @@
                 h2 {
                     font-size: 13px;
                 }
-                .otherTabs {
-                    .first {
-
-                    }
-                    .second {
-                        
-                    }
+                p {
+                    font-size: 12px;
+                    margin-top: 25px;
+                    line-height: 18px;
                 }
             }
         }
