@@ -51,7 +51,7 @@ const _inlineRuntimeConfig = {
   },
   "public": {
     "strapi": {
-      "url": "http://localhost:1337",
+      "url": "https://ominous-space-capybara-p5jpqgxqw6w3r566-1337.app.github.dev",
       "prefix": "/api",
       "version": "v4",
       "cookie": {},
@@ -61,7 +61,7 @@ const _inlineRuntimeConfig = {
     }
   },
   "strapi": {
-    "url": "http://localhost:1337",
+    "url": "https://ominous-space-capybara-p5jpqgxqw6w3r566-1337.app.github.dev",
     "prefix": "/api",
     "version": "v4",
     "cookie": {},

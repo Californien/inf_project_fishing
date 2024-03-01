@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * data-user service
+ * bank-user service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::data-user.data-user');
+module.exports = createCoreService('api::bank-user.bank-user');

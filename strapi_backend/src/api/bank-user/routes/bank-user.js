@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * data-user router
+ * bank-user router
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::data-user.data-user');
+module.exports = createCoreRouter('api::bank-user.bank-user');

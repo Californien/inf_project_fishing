@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * data-user controller
+ * bank-user controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::data-user.data-user');
+module.exports = createCoreController('api::bank-user.bank-user');

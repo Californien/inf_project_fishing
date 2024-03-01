@@ -36,8 +36,9 @@ export default defineNuxtConfig({
 
   // Module settings
   // -> Strapi
-  strapi: { url: 'http://localhost:1337' },
-
+  strapi: {
+    url: 'https://ominous-space-capybara-p5jpqgxqw6w3r566-1337.app.github.dev'
+  },
   // Custom elements (enabling `ion-icon`)
   vue: {
     compilerOptions: {

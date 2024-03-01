@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bank_users",
+  "info": {
+    "singularName": "bank-user",
+    "pluralName": "bank-users",
+    "displayName": "BankUser"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "clientNumber": {
+      "type": "string",
+      "required": true,
+      "maxLength": 10
+    },
+    "onlinePin": {
+      "type": "string",
+      "required": true,
+      "maxLength": 6
+    }
+  }
+}

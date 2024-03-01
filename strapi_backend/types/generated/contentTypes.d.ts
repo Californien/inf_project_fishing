@@ -362,30 +362,38 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiDataUserDataUser extends Schema.CollectionType {
-  collectionName: 'data_users';
+export interface ApiBankUserBankUser extends Schema.CollectionType {
+  collectionName: 'bank_users';
   info: {
-    singularName: 'data-user';
-    pluralName: 'data-users';
-    displayName: 'data-user';
+    singularName: 'bank-user';
+    pluralName: 'bank-users';
+    displayName: 'BankUser';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    username: Attribute.String & Attribute.Required;
-    password: Attribute.String & Attribute.Required;
+    clientNumber: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 10;
+      }>;
+    onlinePin: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 6;
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::data-user.data-user',
+      'api::bank-user.bank-user',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::data-user.data-user',
+      'api::bank-user.bank-user',
       'oneToOne',
       'admin::user'
     > &
@@ -822,7 +830,7 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::data-user.data-user': ApiDataUserDataUser;
+      'api::bank-user.bank-user': ApiBankUserBankUser;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
