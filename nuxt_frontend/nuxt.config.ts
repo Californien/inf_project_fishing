@@ -15,8 +15,7 @@ export default defineNuxtConfig({
   },
   components: {
     dirs: [
-      'vue/components',
-      'vue/components/numPad'
+      'vue/components'
     ]
   },
 

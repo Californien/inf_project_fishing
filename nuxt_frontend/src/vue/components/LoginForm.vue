@@ -5,18 +5,19 @@
             <div class="textField">
                 <label for="user">Kundennummer</label>
             </div>
-            <input type="text" id="user" ref="user" autocomplete="off" maxlength="10" tabindex="1" title="Kundennummer (erforderlich)">
-            <img src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/zifferneingabe.png" @click="enterNumPad('user')">
-            <NumPadUser v-if="showUserNP" />
+            <input v-model="inputValueUser" type="text" id="user" autocomplete="off" maxlength="10" tabindex="1" title="Kundennummer (erforderlich)">
+            <img src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/zifferneingabe.png">
         </div>
         <div class="input pin">
             <div class="textField">
                 <label for="onlinePin">Online-Pin</label>
             </div>
-            <input type="password" id="onlinePin" ref="onlinePin" autocomplete="off" maxlength="6" tabindex="2" title="Online-PIN (erforderlich)">
-            <img src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/zifferneingabe.png" @click="enterNumPad('onlinePin')">
-            <NumPadOnlinePin v-if="showOnlinePinNP" />
+            <input type="password" id="onlinePin" autocomplete="off" maxlength="6" tabindex="2" title="Online-PIN (erforderlich)">
+            <img src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/zifferneingabe.png">
         </div>
+    </div>
+    <div id="loginBtn">
+        <img src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/buttons/buttonFlach_Jetzt_einloggen.png" @click="sendData">
     </div>
 
 </template>
@@ -28,6 +29,10 @@
         height: 53px;
         margin-top: 22px;
         .input {
+            &:last-child {
+                margin-top: 30px;
+            }
+            position: absolute;
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -53,26 +58,28 @@
         }
     }
 
+    #loginBtn {
+        z-index: 2;
+        cursor: pointer;
+        position: absolute;
+        bottom: 10px;
+        right: 20px;
+    }
+
 </style>
 
-<script>
+<script lang="ts" setup>
 
-    export default {
-        data() {
-            return {
-                showOnlinePinNP: false,
-                showUserNP: false
-            };
-        },
-        methods: {
-            enterNumPad(input_id) {
-                if(input_id === 'user') {
-                    this.showUserNP = !this.showUserNP;
-                } else {
-                    this.showOnlinePinNP = !this.showOnlinePinNP;
-                }
-            }
-        }
+    import { ref } from 'vue';
+
+    const inputValueUser = ref('');
+    const savedValueUser = ref('');
+
+    function saveInput() {
+        savedValueUser.value = inputValueUser.value;
+    }
+    function sendData() {
+        console.log(savedValueUser);
     }
 
 </script>

@@ -11,7 +11,6 @@
                     <p>Bitte melden Sie sich mit der Eingabe Ihrer Kundennummer und der Online-PIN an. Andere Angaben sind nicht notwendig.</p>
                     <LoginForm />
                 </div>
-                <LoginButton />
             </div>
             <div class="loginBgImageBottom"></div>
             <div class="loginBgImageMirror"></div>
@@ -87,3 +86,9 @@
     }
 
 </style>
+
+<script lang="ts" setup>
+
+
+
+</script>
