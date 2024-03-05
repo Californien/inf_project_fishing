@@ -12,8 +12,13 @@
 
 <script lang="ts" setup>
 
-    function openLink(link: any) {
-        navigateTo(link, { external: true, open: { target: '_blank' } })
+    async function openLink(link: any) {
+        await navigateTo(link, {
+            external: true,
+            open: {
+                target: '_blank'
+            }
+        });
     }
 
 </script>
@@ -27,9 +32,9 @@
         align-items: center;
         width: inherit;
         position: absolute;
-        bottom: 84px;
+        bottom: 80px;
         left: 35px;
-        gap: 10px;
+        gap: 12px;
         p {
             cursor: pointer;
             font-size: 12px;
