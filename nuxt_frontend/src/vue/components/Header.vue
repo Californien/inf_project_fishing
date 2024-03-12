@@ -1,7 +1,7 @@
 <template>
 
     <div id="header">
-        <img src="/images/spardalogo.jpg" alt="Logo">
+        <img src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/logo/spardalogo.gif" alt="Logo">
         <p>Sparda-Bank West eG <b>GENODEF1S08</b></p>
     </div>
 
