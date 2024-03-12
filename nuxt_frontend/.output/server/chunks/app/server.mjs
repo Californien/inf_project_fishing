@@ -1,20 +1,119 @@
-import { reactive, hasInjectionContext, getCurrentInstance, version, unref, inject, toRef, isRef, ref, defineComponent, computed, h, resolveComponent, nextTick, shallowRef, shallowReactive, isReadonly, isShallow, isReactive, toRaw, provide, Suspense, Transition, useSSRContext, withCtx, createTextVNode, onErrorCaptured, onServerPrefetch, createVNode, resolveDynamicComponent, defineAsyncComponent, createApp } from "vue";
-import { $fetch as $fetch$1 } from "ofetch";
-import { useRuntimeConfig as useRuntimeConfig$1 } from "#internal/nitro";
-import { createHooks } from "hookable";
-import { getContext } from "unctx";
-import destr from "destr";
-import "devalue";
-import { defu } from "defu";
-import "klona";
-import { defineHeadPlugin } from "@unhead/shared";
-import { createMemoryHistory, createRouter, START_LOCATION, RouterView } from "vue-router";
-import { sanitizeStatusCode, createError as createError$1, getRequestHeader, setCookie, getCookie, deleteCookie } from "h3";
-import { withQuery, hasProtocol, parseURL, isScriptProtocol, joinURL, parseQuery, withTrailingSlash, withoutTrailingSlash } from "ufo";
-import { parse } from "cookie-es";
-import { isEqual } from "ohash";
-import { stringify } from "qs";
-import { ssrRenderAttrs, ssrRenderComponent, ssrInterpolate, ssrRenderSuspense, ssrRenderVNode } from "vue/server-renderer";
+import { version, useSSRContext, unref, defineComponent, withCtx, createTextVNode, createApp, reactive, hasInjectionContext, getCurrentInstance, ref, provide, onErrorCaptured, onServerPrefetch, createVNode, resolveDynamicComponent, inject, toRef, computed, h, resolveComponent, shallowRef, shallowReactive, isReadonly, defineAsyncComponent, isRef, isShallow, isReactive, toRaw, nextTick, Suspense, Transition } from 'vue';
+import { f as useRuntimeConfig$1, i as createError$1, $ as $fetch$1, m as createHooks, p as parse, n as getRequestHeader, o as destr, q as isEqual, r as setCookie, t as getCookie, v as deleteCookie, x as hasProtocol, y as parseURL, z as parseQuery, A as withQuery, B as isScriptProtocol, j as joinURL, C as withTrailingSlash, D as withoutTrailingSlash, E as sanitizeStatusCode, F as defu } from '../nitro/node-server.mjs';
+import { defineHeadPlugin } from '@unhead/shared';
+import { createMemoryHistory, createRouter, START_LOCATION, RouterView } from 'vue-router';
+import { stringify } from 'qs';
+import { ssrRenderAttrs, ssrInterpolate, ssrRenderComponent, ssrRenderSuspense, ssrRenderVNode } from 'vue/server-renderer';
+import 'node:http';
+import 'node:https';
+import 'node:zlib';
+import 'node:stream';
+import 'node:buffer';
+import 'node:util';
+import 'node:url';
+import 'node:net';
+import 'node:fs';
+import 'node:path';
+import 'fs';
+import 'path';
+
+function createContext$1(opts = {}) {
+  let currentInstance;
+  let isSingleton = false;
+  const checkConflict = (instance) => {
+    if (currentInstance && currentInstance !== instance) {
+      throw new Error("Context conflict");
+    }
+  };
+  let als;
+  if (opts.asyncContext) {
+    const _AsyncLocalStorage = opts.AsyncLocalStorage || globalThis.AsyncLocalStorage;
+    if (_AsyncLocalStorage) {
+      als = new _AsyncLocalStorage();
+    } else {
+      console.warn("[unctx] `AsyncLocalStorage` is not provided.");
+    }
+  }
+  const _getCurrentInstance = () => {
+    if (als && currentInstance === void 0) {
+      const instance = als.getStore();
+      if (instance !== void 0) {
+        return instance;
+      }
+    }
+    return currentInstance;
+  };
+  return {
+    use: () => {
+      const _instance = _getCurrentInstance();
+      if (_instance === void 0) {
+        throw new Error("Context is not available");
+      }
+      return _instance;
+    },
+    tryUse: () => {
+      return _getCurrentInstance();
+    },
+    set: (instance, replace) => {
+      if (!replace) {
+        checkConflict(instance);
+      }
+      currentInstance = instance;
+      isSingleton = true;
+    },
+    unset: () => {
+      currentInstance = void 0;
+      isSingleton = false;
+    },
+    call: (instance, callback) => {
+      checkConflict(instance);
+      currentInstance = instance;
+      try {
+        return als ? als.run(instance, callback) : callback();
+      } finally {
+        if (!isSingleton) {
+          currentInstance = void 0;
+        }
+      }
+    },
+    async callAsync(instance, callback) {
+      currentInstance = instance;
+      const onRestore = () => {
+        currentInstance = instance;
+      };
+      const onLeave = () => currentInstance === instance ? onRestore : void 0;
+      asyncHandlers$1.add(onLeave);
+      try {
+        const r = als ? als.run(instance, callback) : callback();
+        if (!isSingleton) {
+          currentInstance = void 0;
+        }
+        return await r;
+      } finally {
+        asyncHandlers$1.delete(onLeave);
+      }
+    }
+  };
+}
+function createNamespace$1(defaultOpts = {}) {
+  const contexts = {};
+  return {
+    get(key, opts = {}) {
+      if (!contexts[key]) {
+        contexts[key] = createContext$1({ ...defaultOpts, ...opts });
+      }
+      contexts[key];
+      return contexts[key];
+    }
+  };
+}
+const _globalThis$1 = typeof globalThis !== "undefined" ? globalThis : typeof self !== "undefined" ? self : typeof global !== "undefined" ? global : {};
+const globalKey$2 = "__unctx__";
+const defaultNamespace = _globalThis$1[globalKey$2] || (_globalThis$1[globalKey$2] = createNamespace$1());
+const getContext = (key, opts = {}) => defaultNamespace.get(key, opts);
+const asyncHandlersKey$1 = "__unctx_async_handlers__";
+const asyncHandlers$1 = _globalThis$1[asyncHandlersKey$1] || (_globalThis$1[asyncHandlersKey$1] = /* @__PURE__ */ new Set());
+
 const appConfig = useRuntimeConfig$1().app;
 const baseURL = () => appConfig.baseURL;
 const nuxtAppCtx = /* @__PURE__ */ getContext("nuxt-app", {
@@ -732,7 +831,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/index-bdd809ef.js").then((m) => m.default || m)
+    component: () => import('./_nuxt/index-bdd809ef.mjs').then((m) => m.default || m)
   }
 ];
 const routerOptions0 = {
@@ -1360,7 +1459,7 @@ const _sfc_main = {
   __name: "nuxt-root",
   __ssrInlineRender: true,
   setup(__props) {
-    const IslandRenderer = /* @__PURE__ */ defineAsyncComponent(() => import("./_nuxt/island-renderer-2a4daaa9.js").then((r) => r.default || r));
+    const IslandRenderer = /* @__PURE__ */ defineAsyncComponent(() => import('./_nuxt/island-renderer-2a4daaa9.mjs').then((r) => r.default || r));
     const nuxtApp = /* @__PURE__ */ useNuxtApp();
     nuxtApp.deferHydration();
     nuxtApp.ssrContext.url;
@@ -1426,11 +1525,6 @@ let entry;
   };
 }
 const entry$1 = (ctx) => entry(ctx);
-export {
-  _export_sfc as _,
-  useStrapiVersion as a,
-  createError as c,
-  entry$1 as default,
-  useStrapiClient as u
-};
+
+export { _export_sfc as _, useStrapiVersion as a, createError as c, entry$1 as default, useStrapiClient as u };
 //# sourceMappingURL=server.mjs.map

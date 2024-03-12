@@ -1,4 +1,4 @@
-export default {
+const client_manifest = {
   "../node_modules/nuxt/dist/app/entry.js": {
     "resourceType": "script",
     "module": true,
@@ -36,4 +36,7 @@ export default {
     "prefetch": true,
     "preload": true
   }
-}
+};
+
+export { client_manifest as default };
+//# sourceMappingURL=client.manifest.mjs.map
