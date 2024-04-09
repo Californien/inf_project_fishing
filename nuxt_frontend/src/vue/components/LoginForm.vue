@@ -20,6 +20,8 @@
         <img src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/buttons/buttonFlach_Jetzt_einloggen.png" @click="sendData">
     </button>
 
+    <Numpad />
+
 </template>
 
 <style lang="scss">
