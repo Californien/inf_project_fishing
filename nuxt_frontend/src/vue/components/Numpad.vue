@@ -1,6 +1,6 @@
 <template>
 
-    <div id="numpad" :class="compClass" :style="{ opacity: compOpacity }">
+    <div :id="compClassId" :class="compClass">
         <p>Zifferneingabe</p>
         <button class="closeBtn" title="schließen" @click="close"></button>
         <table cellspacing="0" cellpadding="0">
@@ -24,7 +24,7 @@
                 </td>
                 <td>
                     <button id="b6" title="6 eingeben" @click="enterNumber(6)">6</button>
-                </td>
+                </td>   
             </tr>
             <tr>
                 <td>
@@ -55,7 +55,13 @@
 
 <style lang="scss">
 
-    #numpad {
+    #numpad-0, #numpad-1 {
+        &.invisible {
+            opacity: 0;
+            pointer-events: none;
+        }
+        pointer-events: all;
+        opacity: 1;
         position: relative;
         left: 800px;
         bottom: 100px;
@@ -118,20 +124,26 @@
 
 </style>
 
-<script>
+<script lang="ts" setup>
 
-    export default {
-        data() {
-            return {
-                compClass: '',
-                compOpacity: 0,
-            }
-        },
-        methods: {
-            close() {
-                this.compOpacity: 1
-            }
-        },
+    import { ref, Ref } from 'vue';
+
+    interface InputData {
+        value: string | null | undefined;
+    }
+
+    let compClass = 'visible';
+    let compClassId = 'numpad-0';
+
+    function enterNumber(number: Number) {
+        const inputUser: Ref<InputData> = ref({ value: null });
+        const inputPin: Ref<InputData> = ref({ value: null });
+        const inputId = parseInt(compClassId.slice(7));
+        if(inputId === 0) {
+            inputUser.value.value += number;
+        } else {
+            inputPin.value.value += number;
+        }
     }
 
 </script>
