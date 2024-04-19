@@ -45,5 +45,4 @@ export default defineNuxtConfig({
       isCustomElement: tag => tag === 'ion-icon'
     }
   }
-
 });

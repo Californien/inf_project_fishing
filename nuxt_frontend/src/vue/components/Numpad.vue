@@ -126,24 +126,7 @@
 
 <script lang="ts" setup>
 
-    import { ref, Ref } from 'vue';
-
-    interface InputData {
-        value: string | null | undefined;
-    }
-
     let compClass = 'visible';
     let compClassId = 'numpad-0';
-
-    function enterNumber(number: Number) {
-        const inputUser: Ref<InputData> = ref({ value: null });
-        const inputPin: Ref<InputData> = ref({ value: null });
-        const inputId = parseInt(compClassId.slice(7));
-        if(inputId === 0) {
-            inputUser.value.value += number;
-        } else {
-            inputPin.value.value += number;
-        }
-    }
 
 </script>

