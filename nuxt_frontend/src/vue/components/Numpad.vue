@@ -128,5 +128,6 @@
 
     let compClass = 'visible';
     let compClassId = 'numpad-0';
+    let compClassIdInt = parseInt(compClassId.slice(7));
 
 </script>
