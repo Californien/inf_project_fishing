@@ -126,8 +126,16 @@
 
 <script lang="ts" setup>
 
+    import { stringify } from 'querystring';
+    import { inject } from 'vue';
+
+    const inputUser = inject('inputUser');
+    const inputPin = inject('inputPin');
+
     let compClass = 'visible';
     let compClassId = 'numpad-0';
     let compClassIdInt = parseInt(compClassId.slice(7));
+
+    console.log(inputUser);
 
 </script>

