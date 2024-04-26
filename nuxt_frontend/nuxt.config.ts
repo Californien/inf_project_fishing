@@ -19,9 +19,6 @@ export default defineNuxtConfig({
     ]
   },
 
-  // Styling
-  css: [ '/assets/scss/main.scss' ],
-
   // App settings
   app: {
     pageTransition: {},

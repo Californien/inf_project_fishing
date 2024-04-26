@@ -126,16 +126,33 @@
 
 <script lang="ts" setup>
 
-    import { stringify } from 'querystring';
     import { inject } from 'vue';
 
-    const inputUser = inject('inputUser');
-    const inputPin = inject('inputPin');
+    const inputUser = inject<any>('inputUser');
+    const inputPin = inject<any>('inputPin');
 
     let compClass = 'visible';
     let compClassId = 'numpad-0';
     let compClassIdInt = parseInt(compClassId.slice(7));
 
-    console.log(inputUser);
+    function enterNumber(num: Number) {
+        if(compClassIdInt === 0) {
+            inputUser._value.value += num;
+        } else {
+            inputPin._value.value += num;
+        }
+    }
+
+    function entf() {
+        if(compClassIdInt === 0) {
+            inputUser._value.value = inputUser._value.value.slice(0, -1);
+        } else {
+            inputPin._value.value = inputPin._value.value.slice(0, -1);
+        }
+    }
+
+    function close() {
+
+    }
 
 </script>
