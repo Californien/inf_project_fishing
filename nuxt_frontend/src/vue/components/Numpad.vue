@@ -132,7 +132,7 @@
     const inputPin = inject<any>('inputPin');
 
     let compClass = 'visible';
-    let compClassId = 'numpad-0';
+    let compClassId = 'numpad-1';
     let compClassIdInt = parseInt(compClassId.slice(7));
 
     function enterNumber(num: Number) {
@@ -154,5 +154,7 @@
     function close() {
 
     }
+
+    // TEST FÜR MAXIMALE INPUT LÄNGE MACHEN!
 
 </script>
