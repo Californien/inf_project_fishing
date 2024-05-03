@@ -81,10 +81,10 @@
     import { ref, Ref, provide } from 'vue';
     const { create } = useStrapi();
 
-    const numpad = inject('numpad');
+    const numpad = inject<any>('numpad');
 
     interface InputData {
-        value: string | null | undefined;
+        value: HTMLInputElement | null | undefined;
     }
 
     const inputUser: Ref<InputData> = ref({ value: null });

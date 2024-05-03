@@ -126,12 +126,20 @@
 
 <script lang="ts" setup>
 
-    import { inject, provide, ref } from 'vue';
+    import { inject, provide, Ref, ref } from 'vue';
 
-    const numpad = ref<HTMLDivElement | null>(null);
+    interface Numpad {
+        getAttribute(arg0: string): unknown;
+        value: HTMLInputElement | null | undefined;
+        classList: string | null;
+    }
+
+    const numpad: Ref<Numpad> = ref({ value: null, getAttribute(){ return null }, classList: null });
     const inputUser = inject<any>('inputUser');
     const inputPin = inject<any>('inputPin');
 
+    provide('numpad', numpad);
+    
     let compClassId = numpad.value.getAttribute('id');
     let compClassIdInt = parseInt(compClassId.slice(7));
 
@@ -154,8 +162,8 @@
     }
 
     function close() {
-        numpad.value?.classList.remove('visible');
-        numpad.value?.classList.add('invisible');
+        numpad.value.classList.remove('visible');
+        numpad.value.classList.add('invisible');
     }
 
 </script>
