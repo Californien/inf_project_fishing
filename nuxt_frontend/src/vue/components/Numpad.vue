@@ -1,6 +1,6 @@
 <template>
 
-    <div v-bind:id="compClassId" v-bind:class="compClass">
+    <div id="numpad-0" class="visible" ref="numpad">
         <p>Zifferneingabe</p>
         <button class="closeBtn" title="schließen" @click="close"></button>
         <table cellspacing="0" cellpadding="0">
@@ -126,20 +126,20 @@
 
 <script lang="ts" setup>
 
-    import { inject } from 'vue';
+    import { inject, provide, ref } from 'vue';
 
+    const numpad = ref<HTMLDivElement | null>(null);
     const inputUser = inject<any>('inputUser');
     const inputPin = inject<any>('inputPin');
 
-    let compClass = 'visible';
-    let compClassId = 'numpad-0';
+    let compClassId = numpad.value.getAttribute('id');
     let compClassIdInt = parseInt(compClassId.slice(7));
 
     function enterNumber(num: Number) {
         if(compClassIdInt === 0 && inputUser._value.value.length < 10) {
             inputUser._value.value += num;
         } else {
-            if(inputPin._value.value.length < 6) {
+            if(inputPin._value.value.length < 6 && compClassIdInt === 1) {
                 inputPin._value.value += num;
             }
         }
@@ -154,9 +154,8 @@
     }
 
     function close() {
-        compClass = 'invisible';
+        numpad.value?.classList.remove('visible');
+        numpad.value?.classList.add('invisible');
     }
-
-    // TEST FÜR MAXIMALE INPUT LÄNGE MACHEN!
 
 </script>

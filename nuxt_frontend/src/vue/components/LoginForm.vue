@@ -81,6 +81,8 @@
     import { ref, Ref, provide } from 'vue';
     const { create } = useStrapi();
 
+    const numpad = inject('numpad');
+
     interface InputData {
         value: string | null | undefined;
     }
@@ -99,10 +101,8 @@
         await navigateTo('https://www.google.com/', { external: true });
     }
 
-    const openNumpad = (id: 0 | 1) => {
-        
-    };
-
-    provide('openNumpad', openNumpad)
+    function openNumpad(id: 0 | 1) {
+        console.log(numpad);
+    }
 
 </script>
