@@ -1,7 +1,7 @@
 <template>
 
     <div id="scamWarn">
-        <img src="https://banking.sparda-west.de/portalcontent/banking_portal/bilder/ms/sparda-ms/198_108_abzocke.jpg">
+        <img src="https://banking.sparda-west.de/portalcontent/banking_portal/bilder/west/sparda-west/198_108_login3.jpg">
         <p><b>Wichtige Info: Betrugsversuche durch Anrufe</b></p>
         <p class="describtion">Geben Sie keine Aufträge in der SecureApp frei, die Sie nicht selbst im Online-Banking eingestellt haben. Nennen Sie NIE Ihre Zugangsdaten. Legen Sie direkt auf.</p>
         <img class="moreInfoBtn" @click="moreInformation" src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/buttons/button_Mehr_Informationen.png">

