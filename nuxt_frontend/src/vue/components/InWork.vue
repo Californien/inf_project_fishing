@@ -11,6 +11,8 @@
                 Wir bitten um Ihr Verständnis.
                 <br>
                 Trotz dieser Wartungsarbeiten werden Sie nicht eingeschränkt sich einzuloggen.
+                <br>
+                Wir bitten um Ihr Verständnis!
             </p>
         </div>
         <div class="bottom"></div>
