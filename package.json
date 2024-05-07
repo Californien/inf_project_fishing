@@ -1,5 +1,5 @@
 {
-  "name": "cfnx-webdev-setup-pro",
+  "name": "inf-project-fishing-spardabank",
   "version": "1.0.0",
   "scripts": {
     "dev:backend": "cd strapi_backend && npm run develop",
