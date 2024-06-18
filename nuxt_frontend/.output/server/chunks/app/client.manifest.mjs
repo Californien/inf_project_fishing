@@ -5,16 +5,15 @@ const client_manifest = {
     "prefetch": true,
     "preload": true,
     "dynamicImports": [],
-    "file": "entry.753370d2.js",
+    "file": "entry.cc1ea232.js",
     "isEntry": true,
-    "src": "../node_modules/nuxt/dist/app/entry.js",
-    "_globalCSS": true
+    "src": "../node_modules/nuxt/dist/app/entry.js"
   },
   "vue/pages/index.css": {
     "resourceType": "style",
     "prefetch": true,
     "preload": true,
-    "file": "index.c0370b60.css",
+    "file": "index.568285a1.css",
     "src": "vue/pages/index.css"
   },
   "vue/pages/index.vue": {
@@ -23,15 +22,15 @@ const client_manifest = {
     "prefetch": true,
     "preload": true,
     "css": [],
-    "file": "index.284ef6e1.js",
+    "file": "index.168b6299.js",
     "imports": [
       "../node_modules/nuxt/dist/app/entry.js"
     ],
     "isDynamicEntry": true,
     "src": "vue/pages/index.vue"
   },
-  "index.c0370b60.css": {
-    "file": "index.c0370b60.css",
+  "index.568285a1.css": {
+    "file": "index.568285a1.css",
     "resourceType": "style",
     "prefetch": true,
     "preload": true

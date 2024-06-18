@@ -2,4 +2,4 @@ const scamWarn_vue_vue_type_style_index_0_lang = "#scamWarn{background:url(https
 export {
   scamWarn_vue_vue_type_style_index_0_lang as default
 };
-//# sourceMappingURL=index-styles-4.mjs-4f96bf7e.js.map
+//# sourceMappingURL=index-styles-5.mjs-4f96bf7e.js.map

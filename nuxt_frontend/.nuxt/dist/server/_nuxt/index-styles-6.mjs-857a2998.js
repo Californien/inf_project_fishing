@@ -2,4 +2,4 @@ const Footer_vue_vue_type_style_index_0_lang = "#footer{align-items:center;botto
 export {
   Footer_vue_vue_type_style_index_0_lang as default
 };
-//# sourceMappingURL=index-styles-5.mjs-857a2998.js.map
+//# sourceMappingURL=index-styles-6.mjs-857a2998.js.map

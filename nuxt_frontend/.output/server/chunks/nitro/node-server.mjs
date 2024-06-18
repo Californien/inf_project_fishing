@@ -5099,40 +5099,33 @@ const errorHandler = (async function errorhandler(error, event) {
 });
 
 const assets = {
-  "/favicon.ico": {
-    "type": "image/vnd.microsoft.icon",
+  "/.gitkeep": {
+    "type": "text/plain; charset=utf-8",
     "etag": "\"0-2jmj7l5rSw0yVb/vlWAYkK/YBwk\"",
-    "mtime": "2024-03-12T08:45:56.257Z",
+    "mtime": "2024-06-18T08:55:07.652Z",
     "size": 0,
-    "path": "../public/favicon.ico"
+    "path": "../public/.gitkeep"
   },
-  "/_nuxt/entry.753370d2.js": {
+  "/_nuxt/entry.cc1ea232.js": {
     "type": "application/javascript",
-    "etag": "\"2ca10-ohSJm40xDZG3qvmIMTGYTiulvho\"",
-    "mtime": "2024-03-12T08:45:56.229Z",
+    "etag": "\"2ca10-ul3wQSJ5PKyGQEDD63UdH06764s\"",
+    "mtime": "2024-06-18T08:55:07.648Z",
     "size": 182800,
-    "path": "../public/_nuxt/entry.753370d2.js"
+    "path": "../public/_nuxt/entry.cc1ea232.js"
   },
-  "/_nuxt/index.284ef6e1.js": {
+  "/_nuxt/index.168b6299.js": {
     "type": "application/javascript",
-    "etag": "\"1cf6-UzyE0vP3gwzwWF0sPIeV8nWiK3s\"",
-    "mtime": "2024-03-12T08:45:56.233Z",
-    "size": 7414,
-    "path": "../public/_nuxt/index.284ef6e1.js"
+    "etag": "\"2011-xB8cIf+Q2eziIN/eiypvSv83yiE\"",
+    "mtime": "2024-06-18T08:55:07.648Z",
+    "size": 8209,
+    "path": "../public/_nuxt/index.168b6299.js"
   },
-  "/_nuxt/index.c0370b60.css": {
+  "/_nuxt/index.568285a1.css": {
     "type": "text/css; charset=utf-8",
-    "etag": "\"bf7-xSNlsNGcZLpUjlwjGuX7bdRnM9o\"",
-    "mtime": "2024-03-12T08:45:56.229Z",
-    "size": 3063,
-    "path": "../public/_nuxt/index.c0370b60.css"
-  },
-  "/images/spardalogo.jpg": {
-    "type": "image/jpeg",
-    "etag": "\"2c16-xrXajsab3ZsZ2O7xjThgCeJh0LE\"",
-    "mtime": "2024-03-12T08:45:56.269Z",
-    "size": 11286,
-    "path": "../public/images/spardalogo.jpg"
+    "etag": "\"f26-kOGZqSk6LzDsQQXnRrNAbxJZ/u4\"",
+    "mtime": "2024-06-18T08:55:07.648Z",
+    "size": 3878,
+    "path": "../public/_nuxt/index.568285a1.css"
   }
 };
 
@@ -5329,7 +5322,7 @@ const _f4b49z = eventHandler((event) => {
   return readAsset(id);
 });
 
-const _lazy_xmnZUL = () => import('../handlers/renderer.mjs').then(function (n) { return n.r; });
+const _lazy_xmnZUL = () => import('../handlers/renderer.mjs');
 
 const handlers = [
   { route: '', handler: _f4b49z, lazy: false, middleware: true, method: undefined },

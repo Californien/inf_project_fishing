@@ -12,7 +12,10 @@
     "i": "concurrently -n MAIN_DIR,NUXT_FRONTEND_DIR,STR_BACKEND_DIR -c #1FD7E7,#39E9AC,#7B39E9 \"npm i\" \"npm run i:frontend\" \"npm run i:backend\"",
     "build:backend": "cd strapi_backend && npm run build --production",
     "build:frontend": "cd nuxt_frontend && npm run build",
-    "build": "concurrently -n STR_BACKEND_DIR,NUXT_FRONTEND_DIR -c red,blue \"npm run build:backend\" \"npm run build:frontend\""
+    "build": "concurrently -n STR_BACKEND_DIR,NUXT_FRONTEND_DIR -c red,blue \"npm run build:backend\" \"npm run build:frontend\"",
+    "pow:fr": "cd nuxt_frontend && node main.js",
+    "pow:ba": "cd strapi_backend && node server.js",
+    "pow": "concurrently -n FRONTEND,BACKEND \"npm run pow:fr\" \"npm run pow:ba\""
   },
   "devDependencies": {
     "chalk": "^2.4.2",
