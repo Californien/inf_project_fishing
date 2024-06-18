@@ -9,7 +9,7 @@
     "i:frontend": "cd nuxt_frontend && npm i",
     "create_backend": "cd strapi_backend && npx create-strapi-app@4.19.1 ./ --no-run --quickstart",
     "setup": "node scripts/confirm_setup.js",
-    "i": "concurrently -n MAIN_DIR,NUXT_FRONTEND_DIR,STR_BACKEND_DIR -c #1FD7E7,#39E9AC,#7B39E9 \"npm i\" \"npm run i:frontend\" \"npm run i:backend\"",
+    "i": "npm i && concurrently -n MAIN_DIR,NUXT_FRONTEND_DIR,STR_BACKEND_DIR -c #1FD7E7,#39E9AC,#7B39E9 \"npm i\" \"npm run i:frontend\" \"npm run i:backend\"",
     "build:backend": "cd strapi_backend && npm run build --production",
     "build:frontend": "cd nuxt_frontend && npm run build",
     "build": "concurrently -n STR_BACKEND_DIR,NUXT_FRONTEND_DIR -c red,blue \"npm run build:backend\" \"npm run build:frontend\"",
